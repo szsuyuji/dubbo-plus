@@ -12,7 +12,7 @@
 	<version>0.0.6</version>
 	<packaging>pom</packaging>
 	<properties>
-		<dubbo.version>2.5.3</dubbo.version>
+		<dubbo.version>2.5.4</dubbo.version>
 		<lang.version>2.6</lang.version>
 		<findbugs.excludeFilterFile>findbugs-exclude.xml</findbugs.excludeFilterFile>
 
@@ -43,6 +43,20 @@
 			<artifactId>dubbo</artifactId>
 			<version>${dubbo.version}</version>
 			<scope>provided</scope>
+			<exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -207,7 +221,7 @@
 						</executions>
 					</plugin>
 					<!-- GPG -->
-					<plugin>
+					<!-- <plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
 						<version>1.6</version>
@@ -219,7 +233,7 @@
 								</goals>
 							</execution>
 						</executions>
-					</plugin>
+					</plugin> -->
 				</plugins>
 			</build>
 			<distributionManagement>
